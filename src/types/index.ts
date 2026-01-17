@@ -6,3 +6,9 @@ export interface Application {
     icon: React.ComponentType<{ classname?: string}>;
     component: React.ComponentType;
 }
+
+export interface Project {
+    name: string;
+    tech: string;
+    color: string;
+}
