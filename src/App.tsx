@@ -56,7 +56,7 @@ const App:React.FC = () =>{
 
                 </div>
 
-                <div className={'grid grid-cols-4 gap-6 max-w-8xl'}>
+                <div className={'grid grid-cols-4 gap-6 max-w-8xl px-36'}>
                     <div className={'bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform'}>
                         <div className={'text-4xl mb-3'}>🚀</div>
                         <h3 className={'text-xl font-bold text-white mb-2 '}>10+ Projects</h3>
