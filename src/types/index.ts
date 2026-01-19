@@ -31,3 +31,11 @@ export interface Project {
     tech: string;
     color: string;
 }
+
+export interface Particle {
+    id: number;
+    left: string;
+    top: string;
+    duration: string;
+    delay: string;
+}

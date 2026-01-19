@@ -2,9 +2,19 @@ import {useEffect, useMemo, useState} from 'react';
 import './App.css';
 import * as React from "react";
 import useWindowManager from "./hooks/useWindowManager.ts";
-import type {Application} from "./types";
+import type {Application, Particle} from "./types";
 import Portfolio from "./components/apps/Portfolio.tsx";
-import {Briefcase, Code, Github, Linkedin, TwitterIcon, User} from "lucide-react";
+import {Briefcase, ChevronRight, Code, Github, Linkedin, TwitterIcon, User} from "lucide-react";
+
+
+const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    duration: `${5 + Math.random() * 10}s`,
+    delay: `${Math.random() * 10}s`,
+}));
+
 
 const App:React.FC = () =>{
     const [ showSidebar, setShowSidebar ] = useState<boolean>(false);
@@ -21,6 +31,8 @@ const App:React.FC = () =>{
         {id: 'portfolio', title: 'Portfolio', icon: User, component: Portfolio, color: 'from-blue-500 to-blue-600'},
         {id: 'projects', title: 'Projects', icon: Briefcase, component: Portfolio, color: 'from-purple-500 to-purple-600'},
     ], []);
+
+
 
     return (
         <div className={'h-screen w-screen bg-gradient-to-br from-indigo-900 via-purpose-900 to-pink-900 overflow-hidden relative'}>
@@ -83,9 +95,39 @@ const App:React.FC = () =>{
 
                 </div>
 
-
+                <div className={'mt-12'}>
+                    <p className={'text-white/80 text-lg mb-4 text-center'}>Explore my work and get in touch</p>
+                    <button
+                        onClick={() => setShowSidebar(true)}
+                        className={'bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg' +
+                            ' hover: scale-105 transition-transform shadow-2xl flex items-center space-x-2 mx-auto'}
+                        >
+                        <span>Open Navigation</span>
+                        <ChevronRight className={'h-5 w-5'} />
+                    </button>
+                </div>
 
             </div>
+
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {INITIAL_PARTICLES.map((p) => (
+                    <div
+                        key={p.id}
+                        className="absolute w-2 h-2 bg-white/20 rounded-full"
+                        style={{
+                            left: p.left,
+                            top: p.top,
+                            animation: `float ${p.duration} infinite ease-in-out`,
+                            animationDelay: p.delay,
+                        }}
+                    />
+                ))}
+            </div>
+
+
+            );
+
+
         </div>
     )
 }
