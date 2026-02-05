@@ -27,7 +27,7 @@ const Window: React.FC<WindowProps> = ({
                 className={'bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-t-lg flex items-center justify-between'}
             >
                 <div className={'flex items-center space-x-3'}>
-                    <app.icon classname={'w-5 h-5'} />
+                    <app.icon className={'w-5 h-5'} />
                     <span className={'font-semibold'}>{app.title}</span>
                 </div>
                 <div className={'flex space-x-2'}>
