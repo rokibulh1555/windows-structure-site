@@ -3,8 +3,8 @@ import * as React from "react";
 export interface Application {
     id: string;
     title: string;
-    // icon: React.ComponentType<{ classname?: string}>;
-    icon: React.ComponentType;
+    icon: React.ComponentType<{ classname?: string}>;
+    // icon: React.ComponentType;
     color: string;
     component: React.ComponentType;
 }

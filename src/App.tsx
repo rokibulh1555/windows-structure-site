@@ -4,7 +4,8 @@ import * as React from "react";
 import useWindowManager from "./hooks/useWindowManager.ts";
 import type {Application, Particle} from "./types";
 import Portfolio from "./components/apps/Portfolio.tsx";
-import {Briefcase, ChevronRight, Code, Github, Linkedin, TwitterIcon, User} from "lucide-react";
+import {Briefcase, ChevronRight, Code, Github, Linkedin, TwitterIcon, User, X} from "lucide-react";
+import Window from "./components/layout/Window.tsx";
 
 
 const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
@@ -100,7 +101,7 @@ const App:React.FC = () =>{
                     <button
                         onClick={() => setShowSidebar(true)}
                         className={'bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg' +
-                            ' hover: scale-105 transition-transform shadow-2xl flex items-center space-x-2 mx-auto'}
+                            ' hover: scale-105 transition-transform shadow-2xl flex items-center space-x-2 mx-auto cursor-pointer'}
                         >
                         <span>Open Navigation</span>
                         <ChevronRight className={'h-5 w-5'} />
@@ -122,6 +123,33 @@ const App:React.FC = () =>{
                         }}
                     />
                 ))}
+            </div>
+
+            {windowManager.windows.map(win => (
+                <Window
+                    key={win.id}
+                    app={win}
+                    isActive={windowManager.activeWindow === win.id}
+                    onClose={windowManager.closeWindow}
+                    onMinimize={windowManager.minimizeWindow}
+                    onMaximize={windowManager.maximizeWindow}
+                    onClick={() => windowManager.setActiveWindow(win.id)}
+                    isMaximized={win.isMaximized}
+                    isMinimized={win.isMinimized}
+                />
+            ))}
+
+            <div className={'fixed top-0 left-0 h-full w-80 bg-gray-900/95 backdrop-blur-lg shadow-2xl transform transition-transform' +
+                `duration-300 z-50 ${showSidebar? 'translate-x-0' : '-translate-x-full'}`}>
+                <div className={'p-6 border-b border-gray-700 flex items-center justify-between'}>
+                    <h2 className={'text-2xl font-bold text-white'}>Applications</h2>
+                    <button
+                        onClick={() => setShowSidebar(false)}
+                        className={'text-white hover:bg-white/10 p-2 rounded-lg transition-colors'}
+                    >
+                        <X className={'w-6 h-6'} />
+                    </button>
+                </div>
             </div>
 
 
