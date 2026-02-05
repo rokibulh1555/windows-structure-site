@@ -4,7 +4,7 @@ import * as React from "react";
 import useWindowManager from "./hooks/useWindowManager.ts";
 import type {Application, Particle} from "./types";
 import Portfolio from "./components/apps/Portfolio.tsx";
-import {Briefcase, ChevronRight, Code, Github, Linkedin, TwitterIcon, User, X} from "lucide-react";
+import {Briefcase, ChevronRight, Code, Github, Linkedin, Menu, TwitterIcon, User, X} from "lucide-react";
 import Window from "./components/layout/Window.tsx";
 
 
@@ -150,6 +150,47 @@ const App:React.FC = () =>{
                         <X className={'w-6 h-6'} />
                     </button>
                 </div>
+
+                <div className={'p-4 space-y-2'}>
+                    {applications.map(app=> (
+                        <button
+                            key={app.id}
+                            onClick={() => {
+                                windowManager.openWindow(app);
+                                setShowSidebar(false);
+                            }}
+                        className={'w-full bg-gradient-to-r from-gray-800 to-gray-700 hover:to-gray-600 text-white p-4 rounded-lg' +
+                            'transition-all flex items-center space-x-4 group cursor-pointer'}
+                        >
+                            <div className={`bg-gradient-to-r ${app.color} p-3 rounded-lg group-hover:scale-110 transition-transform`}>
+                                <app.icon className={'w-6 h-6'} />
+                            </div>
+                            <div className={'text-left'}>
+                                <div className={'font-semibold'}>{app.title}</div>
+                                <div className={'text-xs text-gray-400'}>Click to open</div>
+                            </div>
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            {showSidebar && (
+                <div
+                    onClick={() => setShowSidebar(false)}
+                    className={'fixed inset-0 bg-black/50 backdrop-blur-sm z-40 cursor-pointer'}
+                />
+            )}
+
+            <div className={'absolute bottom-0 left-0 right-0 h-14 bg-gray-900/90 backdrop-blur-lg border-t border-gray-700 flex ' +
+                'items-center justify-between px-4 shadow-lg z-30'}>
+                <button
+                    onClick={() => setShowSidebar(true)}
+                    className={'flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg' +
+                        'hover:scale-105 transition-transform'}
+                    >
+                    <Menu className={'w-5 h-5'} />
+                    <span className={'font-semibold'}>Apps</span>
+                </button>
             </div>
 
 
