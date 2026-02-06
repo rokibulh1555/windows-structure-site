@@ -37,7 +37,7 @@ const Window: React.FC<WindowProps> = ({
                     <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onMaximize(app.id);}} className={'hover:bg-white/20 p-1 rounded'}>
                         <Maximize2 className={'h-4 w-4'}  />
                     </button>
-                    <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onClose(app.id);}} className={'bg-red-500 p-1 rounded'}>
+                    <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onClose(app.id);}} className={'bg-red-500 p-1 rounded cursor-pointer hover:bg-red-900'}>
                         <X className={'h-4 w-4'} />
                     </button>
                 </div>
