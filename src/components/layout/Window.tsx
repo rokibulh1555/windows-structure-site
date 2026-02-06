@@ -1,13 +1,13 @@
 import type {WindowProps} from "../../types";
 import * as React from "react";
-import {Minimize2, X} from "lucide-react";
+import {Maximize2, Minimize2, X} from "lucide-react";
 
 const Window: React.FC<WindowProps> = ({
     app,
     isActive,
     onClose,
-    // onMinimize,
-    // onMaximize,
+    onMinimize,
+    onMaximize,
     onClick,
     isMaximized,
     isMinimized
@@ -31,11 +31,11 @@ const Window: React.FC<WindowProps> = ({
                     <span className={'font-semibold'}>{app.title}</span>
                 </div>
                 <div className={'flex space-x-2'}>
-                    <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onClose(app.id);}} className={'hover:bg-white/20 p-1 rounded'}>
+                    <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onMinimize(app.id);}} className={'hover:bg-white/20 p-1 rounded'}>
                         <Minimize2 className={'h-4 w-4'} />
                     </button>
-                    <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onClose(app.id);}} className={'hover:bg-white/20 p-1 rounded'}>
-                        <Minimize2 className={'h-4 w-4'}  />
+                    <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onMaximize(app.id);}} className={'hover:bg-white/20 p-1 rounded'}>
+                        <Maximize2 className={'h-4 w-4'}  />
                     </button>
                     <button onClick={(e: React.MouseEvent) => {e.stopPropagation(); onClose(app.id);}} className={'bg-red-500 p-1 rounded'}>
                         <X className={'h-4 w-4'} />
