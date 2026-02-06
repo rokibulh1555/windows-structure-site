@@ -7,8 +7,13 @@ const useWindowManager = () => {
     const [ activeWindow, setActiveWindow ] = useState<string | null>(null);
 
     const openWindow = useCallback((app: Application) => {
-        const existingWindow = windows.find( w=> w.id === app.id);
-        if(existingWindow) {
+        const existingWindow = windows.find(w => w.id === app.id);
+        if (existingWindow) {
+            if (existingWindow.isMinimized) {
+                setWindows(prev => prev.map(w =>
+                    w.id === app.id ? { ...w, isMinimized: false } : w
+                ));
+            }
             setActiveWindow(app.id);
             return;
         }
@@ -30,15 +35,21 @@ const useWindowManager = () => {
     }, []);
 
     const minimizeWindow = useCallback((id: string) => {
-        setWindows(prev => prev.map( w => w.id === id? {...w, isMinimized: !w.isMinimized}: w));
+        setWindows(prev => prev.map(w =>
+            w.id === id ? { ...w, isMinimized: true } : w
+        ));
     }, []);
 
     const maximizeWindow = useCallback((id: string) => {
-        setWindows(prev => prev.map( w => w.id === id? {...w, isMaximized: !w.isMaximized}: w));
+        setWindows(prev => prev.map(w =>
+            w.id === id ? { ...w, isMaximized: !w.isMaximized } : w
+        ));
     }, []);
 
     const restoreWindow = useCallback((id: string) => {
-        setWindows(prev => prev.map(w => w.id === id? {...w, isMaximized: false}: w));
+        setWindows(prev => prev.map(w =>
+            w.id === id ? { ...w, isMinimized: false } : w
+        ));
         setActiveWindow(id);
     }, []);
 
