@@ -34,39 +34,47 @@ const Contact: React.FC = () => {
                 </div>
                 <div className={'bg-white rounded-lg p-6 shadow-md space-y-4'}>
                     <div>
-                        <label className={'block text-sm font-medium mb-2'}>Name</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Name</label>
                         <input
                             type={'text'}
                             value={formData.name}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, name: e.target.value})}
-                            className={'w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none'}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                setFormData({ ...formData, name: e.target.value })
+                            }
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                         />
                     </div>
 
-                    <div className={'bg-white rounded-lg p-6 shadow-md space-y-4'}>
-                        <div>
-                            <label className={'block text-sm font-medium mb-2'}>Email</label>
-                            <input
-                                type={'email'}
-                                value={formData.email}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({...formData, email: e.target.value})}
-                                className={'w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none'}
-                            />
-                        </div>
+                    <div>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Email</label>
+                        <input
+                            type="email"
+                            value={formData.email}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                setFormData({ ...formData, email: e.target.value })
+                            }
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                        />
                     </div>
 
-                    <div className={'bg-white rounded-lg p-6 shadow-md space-y-4'}>
-                        <div>
-                            <label className={'block text-sm font-medium mb-2'}>Message</label>
-                            <textarea
-                                value={formData.message}
-                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({...formData, message: e.target.value})}
-                                className={'w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none'}
-                                rows={5}
-                            />
-                        </div>
+                    <div>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Message</label>
+                        <textarea
+                            value={formData.message}
+                            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                                setFormData({ ...formData, message: e.target.value })
+                            }
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                            rows={5}
+                        />
                     </div>
-                    <button onClick={handleSubmit} className={'bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 cursor-pointer'}>Submit</button>
+
+                    <button
+                        onClick={handleSubmit}
+                        className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-all cursor-pointer"
+                    >
+                        Send Message
+                    </button>
                 </div>
             </div>
         </div>
