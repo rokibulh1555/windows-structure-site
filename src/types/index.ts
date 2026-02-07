@@ -39,3 +39,9 @@ export interface Particle {
     duration: string;
     delay: string;
 }
+
+export interface ContactFormData {
+    name: string;
+    email: string;
+    message: string;
+}

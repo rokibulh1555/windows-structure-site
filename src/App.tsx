@@ -4,10 +4,11 @@ import * as React from "react";
 import useWindowManager from "./hooks/useWindowManager.ts";
 import type {Application, Particle} from "./types";
 import Portfolio from "./components/apps/Portfolio.tsx";
-import {Briefcase, ChevronRight, Code, Github, Linkedin, Menu, TwitterIcon, User, X} from "lucide-react";
+import {Briefcase, ChevronRight, Code, Github, Linkedin, Mail, Menu, TwitterIcon, User, X} from "lucide-react";
 import Window from "./components/layout/Window.tsx";
 import Projects from "./components/apps/Projects.tsx";
 import Skills from "./components/apps/Skills.tsx";
+import Contact from "./components/apps/Contact.tsx";
 
 
 const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
@@ -34,6 +35,7 @@ const App:React.FC = () =>{
         {id: 'portfolio', title: 'Portfolio', icon: User, component: Portfolio, color: 'from-blue-500 to-blue-600'},
         {id: 'projects', title: 'Projects', icon: Briefcase, component: Projects, color: 'from-purple-500 to-purple-600'},
         {id: 'skills', title: 'Skills', icon: Code, component: Skills, color: 'from-blue-500 to-purple-600'},
+        {id: 'contact', title: 'Contact', icon: Mail, component: Contact, color: 'from-blue-500 to-purple-600'},
     ], []);
 
 
