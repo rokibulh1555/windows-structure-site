@@ -7,6 +7,7 @@ import Portfolio from "./components/apps/Portfolio.tsx";
 import {Briefcase, ChevronRight, Code, Github, Linkedin, Menu, TwitterIcon, User, X} from "lucide-react";
 import Window from "./components/layout/Window.tsx";
 import Projects from "./components/apps/Projects.tsx";
+import Skills from "./components/apps/Skills.tsx";
 
 
 const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
@@ -32,6 +33,7 @@ const App:React.FC = () =>{
     const applications = useMemo<Application[]>(()=> [
         {id: 'portfolio', title: 'Portfolio', icon: User, component: Portfolio, color: 'from-blue-500 to-blue-600'},
         {id: 'projects', title: 'Projects', icon: Briefcase, component: Projects, color: 'from-purple-500 to-purple-600'},
+        {id: 'skills', title: 'Skills', icon: Code, component: Skills, color: 'from-blue-500 to-purple-600'},
     ], []);
 
 
