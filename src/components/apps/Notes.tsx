@@ -7,4 +7,4 @@ const Notes: React.FC = () => {
     )
 }
 
-export default Notes;3
+export default Notes;
