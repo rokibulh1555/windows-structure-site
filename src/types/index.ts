@@ -45,3 +45,9 @@ export interface ContactFormData {
     email: string;
     message: string;
 }
+
+export interface Note {
+    id: number;
+    title: string;
+    content: string;
+}
