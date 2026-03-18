@@ -50,12 +50,12 @@ const App:React.FC = () =>{
     const applications = useMemo<Application[]>(()=> [
         {id: 'portfolio', title: 'Portfolio', icon: User, component: Portfolio, color: 'from-blue-500 to-blue-600'},
         {id: 'projects', title: 'Projects', icon: Briefcase, component: Projects, color: 'from-purple-500 to-purple-600'},
-        {id: 'skills', title: 'Skills', icon: Code, component: Skills, color: 'from-blue-500 to-purple-600'},
-        {id: 'contact', title: 'Contact', icon: Mail, component: Contact, color: 'from-blue-500 to-purple-600'},
-        {id: 'calculator', title: 'Calculator', icon: Calculator, component: CalculatorApp, color: 'from-blue-500 to-purple-600'},
-        {id: 'notes', title: 'Notes', icon: NotepadText, component: NotesApp, color: 'from-blue-500 to-purple-600'},
-        {id: 'weather', title: 'Weather', icon: CloudSunRain, component: WeatherApp, color: 'from-blue-500 to-purple-600'},
-        {id: 'settings', title: 'Settings', icon: Settings, component: SettingsApp, color: 'from-blue-500 to-purple-600'},
+        {id: 'skills', title: 'Skills', icon: Code, component: Skills, color: 'from-green-500 to-green-600'},
+        {id: 'contact', title: 'Contact', icon: Mail, component: Contact, color: 'from-pink-500 to-pink-600'},
+        {id: 'calculator', title: 'Calculator', icon: Calculator, component: CalculatorApp, color: 'from-orange-500 to-orange-600'},
+        {id: 'notes', title: 'Notes', icon: NotepadText, component: NotesApp, color: 'from-yellow-500 to-yellow-600'},
+        {id: 'weather', title: 'Weather', icon: CloudSunRain, component: WeatherApp, color: 'from-cyan-500 to-cyan-600'},
+        {id: 'settings', title: 'Settings', icon: Settings, component: SettingsApp, color: 'from-gray-500 to-gray-600'},
     ], []);
 
 
