@@ -12,7 +12,7 @@ import {
     Github,
     Linkedin,
     Mail,
-    Menu,
+    Menu, NotepadText,
     TwitterIcon,
     User,
     X
@@ -22,6 +22,7 @@ import Projects from "./components/apps/Projects.tsx";
 import Skills from "./components/apps/Skills.tsx";
 import Contact from "./components/apps/Contact.tsx";
 import CalculatorApp from "./components/apps/Calculator.tsx";
+import NotesApp from "./components/apps/Notes.tsx";
 
 
 const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
@@ -49,7 +50,8 @@ const App:React.FC = () =>{
         {id: 'projects', title: 'Projects', icon: Briefcase, component: Projects, color: 'from-purple-500 to-purple-600'},
         {id: 'skills', title: 'Skills', icon: Code, component: Skills, color: 'from-blue-500 to-purple-600'},
         {id: 'contact', title: 'Contact', icon: Mail, component: Contact, color: 'from-blue-500 to-purple-600'},
-        {id: 'calculator', title: 'Calculater', icon: Calculator, component: CalculatorApp, color: 'from-blue-500 to-purple-600'},
+        {id: 'calculator', title: 'Calculator', icon: Calculator, component: CalculatorApp, color: 'from-blue-500 to-purple-600'},
+        {id: 'notes', title: 'Notes', icon: NotepadText, component: NotesApp, color: 'from-blue-500 to-purple-600'},
     ], []);
 
 
