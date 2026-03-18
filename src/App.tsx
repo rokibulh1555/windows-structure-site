@@ -7,7 +7,7 @@ import Portfolio from "./components/apps/Portfolio.tsx";
 import {
     Briefcase,
     Calculator,
-    ChevronRight,
+    ChevronRight, CloudSunRain,
     Code,
     Github,
     Linkedin,
@@ -23,6 +23,7 @@ import Skills from "./components/apps/Skills.tsx";
 import Contact from "./components/apps/Contact.tsx";
 import CalculatorApp from "./components/apps/Calculator.tsx";
 import NotesApp from "./components/apps/Notes.tsx";
+import WeatherApp from "./components/apps/Weather.tsx";
 
 
 const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
@@ -52,6 +53,7 @@ const App:React.FC = () =>{
         {id: 'contact', title: 'Contact', icon: Mail, component: Contact, color: 'from-blue-500 to-purple-600'},
         {id: 'calculator', title: 'Calculator', icon: Calculator, component: CalculatorApp, color: 'from-blue-500 to-purple-600'},
         {id: 'notes', title: 'Notes', icon: NotepadText, component: NotesApp, color: 'from-blue-500 to-purple-600'},
+        {id: 'weather', title: 'Weather', icon: CloudSunRain, component: WeatherApp, color: 'from-blue-500 to-purple-600'},
     ], []);
 
 
