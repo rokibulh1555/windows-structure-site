@@ -51,3 +51,9 @@ export interface Note {
     title: string;
     content: string;
 }
+
+export interface SettingsState {
+    notifications: boolean;
+    darkMode: boolean;
+    autoUpdate: boolean;
+}

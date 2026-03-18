@@ -12,7 +12,7 @@ import {
     Github,
     Linkedin,
     Mail,
-    Menu, NotepadText,
+    Menu, NotepadText, Settings,
     TwitterIcon,
     User,
     X
@@ -24,6 +24,7 @@ import Contact from "./components/apps/Contact.tsx";
 import CalculatorApp from "./components/apps/Calculator.tsx";
 import NotesApp from "./components/apps/Notes.tsx";
 import WeatherApp from "./components/apps/Weather.tsx";
+import SettingsApp from "./components/apps/Settings.tsx";
 
 
 const INITIAL_PARTICLES: Particle[] = [...Array(20)].map((_, i) => ({
@@ -54,6 +55,7 @@ const App:React.FC = () =>{
         {id: 'calculator', title: 'Calculator', icon: Calculator, component: CalculatorApp, color: 'from-blue-500 to-purple-600'},
         {id: 'notes', title: 'Notes', icon: NotepadText, component: NotesApp, color: 'from-blue-500 to-purple-600'},
         {id: 'weather', title: 'Weather', icon: CloudSunRain, component: WeatherApp, color: 'from-blue-500 to-purple-600'},
+        {id: 'settings', title: 'Settings', icon: Settings, component: SettingsApp, color: 'from-blue-500 to-purple-600'},
     ], []);
 
 
