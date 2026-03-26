@@ -218,7 +218,17 @@ const App:React.FC = () =>{
                     {windowManager.windows.map(win => (
                         <button
                             key={win.id}
-                            onClick={() => win.isMinimized ? windowManager.restoreWindow(win.id): windowManager.setActiveWindow(win.id)}
+                            onClick={(e: React.MouseEvent) => {
+                                e.stopPropagation();
+                                if(win.isMinimized) {
+                                    windowManager.restoreWindow(win.id);
+                                }
+                                else if (windowManager.activeWindow === win.id) {
+                                    windowManager.minimizeWindow(win.id);
+                                } else {
+                                    windowManager.setActiveWindow(win.id);
+                                }
+                            }}
                             className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${
                                 windowManager.activeWindow === win.id && !win.isMinimized ? 
                                 'bg-blue-600 text-white': 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
